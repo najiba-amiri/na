@@ -34,7 +34,7 @@ export default function Footer() {
           </div>
           <p className="text-sm mb-4">{t("Description")}</p>
           <p className="flex items-center gap-2 mb-2">
-            <FaPhoneAlt className="text-[#f1a013]" /> +93 74 941 9463{" "}
+            <FaPhoneAlt className="text-[#f1a013]" /> +93 773386211{" "}
             <FaWhatsapp className="text-[#25D366]" />
           </p>
           <p className="flex items-center gap-2">
