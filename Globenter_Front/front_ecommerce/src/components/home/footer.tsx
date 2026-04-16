@@ -82,9 +82,7 @@ export default function Footer() {
             <li>
               <a href="#" className="hover:text-[#f1a013]">{t("Clothing")}</a>
             </li>
-             <li>
-              <a href="#" className="hover:text-[#f1a013]">{t("Electronics")}</a>
-            </li>
+             
           </ul>
         </div>
       </div>
