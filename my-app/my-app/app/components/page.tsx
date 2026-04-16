@@ -22,7 +22,7 @@ const CompanyHeaderWithNav = () => {
   ];
 
   return (
-    <header className="relative w-full bg-black text-white overflow-hidden border-b border-[#bc9848]/20">
+    <header className="relative w-full bg-white text-white overflow-hidden border-b border-[#bc9848]/20">
 
       {/* 1. TOP IDENTITY AREA */}
       <div className="relative w-full min-h-65 flex items-center px-6 lg:px-16 py-12">
