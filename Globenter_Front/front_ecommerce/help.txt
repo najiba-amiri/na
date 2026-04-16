@@ -1,0 +1,471 @@
+"use client";
+
+import React, { useState } from "react";
+import { UserIcon } from "@/Dashboard/icons";
+
+const AddProductPage: React.FC = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  // Basic fields
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
+  const [tags, setTags] = useState<string[]>([]);
+  const [gender, setGender] = useState("all");
+  const [owner, setOwner] = useState("");
+
+  // Price & Stock
+  const [price, setPrice] = useState("");
+  const [wholesalePrice, setWholesalePrice] = useState("");
+  const [minOrderQty, setMinOrderQty] = useState(1);
+  const [stock, setStock] = useState(0);
+  const [unit, setUnit] = useState("piece");
+
+  // Attributes
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+  const [badge, setBadge] = useState("");
+  const [attributes, setAttributes] = useState<Record<string, string>>({});
+
+  // Images & Variants
+  const [mainImage, setMainImage] = useState<File | null>(null);
+  const [galleryImages, setGalleryImages] = useState<File[]>([]);
+  const [variants, setVariants] = useState<
+    { color: string; stock: number; image: File | null }[]
+  >([]);
+
+  // Extra Settings
+  const [status, setStatus] = useState("active");
+  const [featured, setFeatured] = useState(false);
+  const [customFields, setCustomFields] = useState<Record<string, any>>({
+    warranty: "",
+    color_options: [],
+  });
+
+  const tabs = [
+    "General Information",
+    "Price & Stock",
+    "Attributes",
+    "Images & Variants",
+    "Extra Settings",
+  ];
+
+  const handleAddVariant = () => {
+    setVariants([...variants, { color: "", stock: 0, image: null }]);
+  };
+
+  const handleRemoveVariant = (index: number) => {
+    const updated = [...variants];
+    updated.splice(index, 1);
+    setVariants(updated);
+  };
+
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 0: // General Information
+        return (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="col-span-full">
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Product Name
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Product Name"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+
+            <div className="col-span-full">
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Description
+              </label>
+              <textarea
+                rows={4}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Product Description"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Category
+              </label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="block w-full rounded-md border border-gray-300 py-2 pl-3 pr-10 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              >
+                <option value="">Select Category</option>
+                <option value="1">Cloths</option>
+                <option value="2">Shoes</option>
+                <option value="3">Cosmetics</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Brand
+              </label>
+              <select
+                value={brand}
+                onChange={(e) => setBrand(e.target.value)}
+                className="block w-full rounded-md border border-gray-300 py-2 pl-3 pr-10 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              >
+                <option value="">Select Brand</option>
+                <option value="1">Apple</option>
+                <option value="2">Nike</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Gender
+              </label>
+              <select
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+                className="block w-full rounded-md border border-gray-300 py-2 pl-3 pr-10 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              >
+                <option value="all">All</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Tags
+              </label>
+              <input
+                type="text"
+                value={tags.join(", ")}
+                onChange={(e) => setTags(e.target.value.split(",").map(t => t.trim()))}
+                placeholder="Separate tags with commas"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+          </div>
+        );
+
+      case 1: // Price & Stock
+        return (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Price
+              </label>
+              <input
+                type="number"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                placeholder="Price"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Wholesale Price
+              </label>
+              <input
+                type="number"
+                value={wholesalePrice}
+                onChange={(e) => setWholesalePrice(e.target.value)}
+                placeholder="Wholesale Price"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Min Order Quantity
+              </label>
+              <input
+                type="number"
+                value={minOrderQty}
+                onChange={(e) => setMinOrderQty(Number(e.target.value))}
+                placeholder="Minimum Order"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Stock
+              </label>
+              <input
+                type="number"
+                value={stock}
+                onChange={(e) => setStock(Number(e.target.value))}
+                placeholder="Stock"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Unit
+              </label>
+              <input
+                type="text"
+                value={unit}
+                onChange={(e) => setUnit(e.target.value)}
+                placeholder="Unit"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+          </div>
+        );
+
+      case 2: // Attributes
+        return (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Color
+              </label>
+              <input
+                type="text"
+                value={color}
+                onChange={(e) => setColor(e.target.value)}
+                placeholder="Color"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Size
+              </label>
+              <input
+                type="text"
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
+                placeholder="Size"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Badge
+              </label>
+              <input
+                type="text"
+                value={badge}
+                onChange={(e) => setBadge(e.target.value)}
+                placeholder="Badge"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+          </div>
+        );
+
+      case 3: // Images & Variants
+        return (
+          <div className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Main Image
+              </label>
+              <div className="mt-2 flex justify-center rounded-lg border-2 border-dashed border-gray-300 px-6 pt-5 pb-6 hover:border-indigo-500 transition cursor-pointer">
+                <div className="space-y-1 text-center">
+                  <UserIcon className="mx-auto h-12 w-12 text-gray-400" />
+                  <div className="flex text-sm text-gray-600 justify-center">
+                    <label
+                      htmlFor="main-image-upload"
+                      className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 hover:text-indigo-500"
+                    >
+                      <span>Upload a file</span>
+                      <input
+                        id="main-image-upload"
+                        type="file"
+                        className="sr-only"
+                        onChange={(e) =>
+                          setMainImage(e.target.files?.[0] || null)
+                        }
+                      />
+                    </label>
+                    <p className="pl-1">or drag and drop</p>
+                  </div>
+                  {mainImage && (
+                    <img
+                      src={URL.createObjectURL(mainImage)}
+                      alt="Preview"
+                      className="mt-2 mx-auto h-32 w-32 object-cover rounded"
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Variants
+              </label>
+              <div className="space-y-3">
+                {variants.map((variant, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 border border-gray-200 p-3 rounded"
+                  >
+                    <input
+                      type="text"
+                      placeholder="Color"
+                      value={variant.color}
+                      onChange={(e) => {
+                        const updated = [...variants];
+                        updated[idx].color = e.target.value;
+                        setVariants(updated);
+                      }}
+                      className="block w-24 rounded-md border border-gray-300 px-2 py-1 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+                    />
+                    <input
+                      type="number"
+                      placeholder="Stock"
+                      value={variant.stock}
+                      onChange={(e) => {
+                        const updated = [...variants];
+                        updated[idx].stock = Number(e.target.value);
+                        setVariants(updated);
+                      }}
+                      className="block w-20 rounded-md border border-gray-300 px-2 py-1 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+                    />
+                    <input
+                      type="file"
+                      onChange={(e) => {
+                        const updated = [...variants];
+                        updated[idx].image = e.target.files?.[0] || null;
+                        setVariants(updated);
+                      }}
+                      className="block"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveVariant(idx)}
+                      className="text-red-500 font-semibold"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+                <button
+                  type="button"
+                  onClick={handleAddVariant}
+                  className="px-3 py-1 bg-indigo-600 text-white rounded"
+                >
+                  Add Variant
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 4: // Extra Settings
+        return (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div>
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Status
+              </label>
+              <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                className="block w-full rounded-md border border-gray-300 py-2 pl-3 pr-10 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              >
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </div>
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={featured}
+                onChange={(e) => setFeatured(e.target.checked)}
+                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+              />
+              <label className="text-sm font-medium text-gray-900 mb-1">
+                Featured
+              </label>
+            </div>
+
+            {/* Custom fields */}
+            <div className="col-span-full">
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Warranty
+              </label>
+              <input
+                type="text"
+                value={customFields.warranty}
+                onChange={(e) =>
+                  setCustomFields({ ...customFields, warranty: e.target.value })
+                }
+                placeholder="2 years"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+
+            <div className="col-span-full">
+              <label className="block text-sm font-medium text-gray-900 mb-1">
+                Color Options (comma separated)
+              </label>
+              <input
+                type="text"
+                value={customFields.color_options.join(", ")}
+                onChange={(e) =>
+                  setCustomFields({
+                    ...customFields,
+                    color_options: e.target.value.split(",").map((c) => c.trim()),
+                  })
+                }
+                placeholder="silver, space gray"
+                className="block w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600 sm:text-sm"
+              />
+            </div>
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="p-10">
+      {/* Tabs */}
+      <div className="mb-6 border-b border-gray-200">
+        <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+          {tabs.map((tab, idx) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(idx)}
+              className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm ${
+                activeTab === idx
+                  ? "border-indigo-600 text-indigo-600"
+                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </nav>
+      </div>
+
+      {/* Form */}
+      <form className="space-y-8">
+        {renderTabContent()}
+
+        <div className="flex justify-end">
+          <button
+            type="submit"
+            className="rounded-md bg-indigo-600 px-6 py-2 text-white font-semibold hover:bg-indigo-500 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600"
+          >
+            Add Product
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default AddProductPage;

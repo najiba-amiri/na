@@ -1,0 +1,117 @@
+     <div className="mt-5">
+        {/* Profile Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
+          {/* Member Since */}
+          <div className="bg-white shadow-md rounded-xl p-5 grid grid-rows-[auto_auto] gap-4 text-center w-full max-w-sm">
+            <div className="grid grid-cols-2 items-center gap-4">
+              <div className="flex justify-center">
+                <FaUser className="text-purple-500 text-5xl" />
+              </div>
+              <div className="text-left">
+                <h3 className="text-lg font-semibold">Member Since</h3>
+                <p className="text-2xl font-bold">2025/08/07</p>
+                <p className="text-sm text-gray-500">Account Status: Active</p>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <button className="text-purple-500 font-medium hover:underline">Edit Profile</button>
+            </div>
+          </div>
+
+          {/* Favorites */}
+          <div className="bg-white shadow-md rounded-xl p-5 grid grid-rows-[auto_auto] gap-4 max-w-sm">
+            <div className="grid grid-cols-2 items-center gap-4">
+              <div className="flex justify-center">
+                <FaHeart className="text-pink-500 text-5xl" />
+              </div>
+              <div className="text-left flex flex-col">
+                <h3 className="text-lg font-semibold">Favorite Products</h3>
+                <p className="text-2xl font-bold">1</p>
+                <p className="text-sm text-gray-500">Wishlist</p>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <button className="text-pink-500 font-medium hover:underline">View List</button>
+            </div>
+          </div>
+
+          {/* Addresses */}
+          <div className="bg-white shadow-md rounded-xl p-5 grid grid-rows-[auto_auto] gap-4 max-w-sm">
+            <div className="grid grid-cols-2 items-center gap-4">
+              <div className="flex justify-center">
+                <FaMapMarkerAlt className="text-blue-500 text-5xl" />
+              </div>
+              <div className="text-left flex flex-col">
+                <h3 className="text-lg font-semibold">Registered Addresses</h3>
+                <p className="text-2xl font-bold">0</p>
+                <p className="text-sm text-gray-500">Your Addresses</p>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <button className="text-blue-500 font-medium hover:underline">Manage Addresses</button>
+            </div>
+          </div>
+
+          {/* Orders */}
+          <div className="bg-white shadow-md rounded-xl p-5 grid grid-rows-[auto_auto] gap-4 max-w-sm">
+            <div className="grid grid-cols-2 items-center gap-4">
+              <div className="flex justify-center">
+                <FaShoppingBag className="text-orange-500 text-5xl" />
+              </div>
+              <div className="text-left flex flex-col">
+                <h3 className="text-lg font-semibold">Active Orders</h3>
+                <p className="text-2xl font-bold">0</p>
+                <p className="text-sm text-gray-500">Processing</p>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <button className="text-orange-500 font-medium hover:underline">View All Orders</button>
+            </div>
+          </div>
+        </div>
+
+        {/* Latest Favorites & Recent Orders */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          {/* Latest Favorites */}
+          <div className="bg-white shadow-md rounded-xl p-5">
+            <div className="flex items-center justify-between border-b pb-3">
+              <h3 className="flex items-center gap-2 text-lg font-semibold text-gray-800">
+                <FaHeart className="text-pink-500" />
+                Your Latest Favorites
+              </h3>
+              <button className="text-pink-500 hover:underline font-medium">View All</button>
+            </div>
+            <div className="flex gap-4 items-center mt-4 bg-[#fdf3e7] p-4 rounded-lg">
+              <Image
+                width={80}
+                height={80}
+                src="/assets/images/cloths.png"
+                alt="Product"
+                className="w-20 h-20 object-contain"
+              />
+              <div>
+                <h4 className="font-medium text-gray-800">Q7 ANC Pods Gen6 Earbuds</h4>
+                <p className="text-[#b16926] font-bold">AFN 899</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Recent Orders */}
+          <div className="bg-white shadow-md rounded-xl p-5">
+            <div className="flex items-center justify-between border-b pb-3">
+              <h3 className="flex items-center gap-2 text-lg font-semibold text-gray-800">
+                <FaClock className="text-[#f1a013]" />
+                Your Recent Orders
+              </h3>
+              <button className="text-[#f1a013] hover:underline font-medium">View All</button>
+            </div>
+            <div className="flex flex-col items-center justify-center py-10">
+              <FaShoppingBag className="text-gray-400 text-4xl mb-4" />
+              <p className="text-gray-500 mb-4">You have no orders yet</p>
+              <button className="bg-[#b16926] hover:bg-[#a05b20] text-white px-6 py-2 rounded-lg font-medium">
+                Start Shopping
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>

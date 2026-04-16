@@ -1,0 +1,371 @@
+{
+  "ListItems": {
+    "Categories": "دسته‌بندی‌ها",
+    "Clothing": "لباس",
+    "Shoes": "کفش",
+    "Makeup & Beauty": "آرایش و زیبایی",
+    "Women": "زنانه",
+    "Men": "مردانه",
+    "Kids": "بچگانه",
+    "Face Makeup": "آرایش صورت",
+    "Eye Makeup": "آرایش چشم",
+    "Lip Makeup": "آرایش لب",
+    "View All": "مشاهده همه",
+    "Home": "خانه",
+    "Products": "محصولات",
+    "About Us": "درباره ما",
+    "Blog": "بلاگ",
+    "Support": "پشتیبانی"
+  },
+  "MainNav": {
+    "allCategories": "همه دسته‌ها",
+    "electronics": "الکترونیک",
+    "fashion": "مد",
+    "home": "خانه",
+    "searchPlaceholder": "جستجوی محصولات...",
+    "cart": "سبد خرید",
+    "wishlist": "علاقه‌مندی‌ها",
+    "Account": "حساب کاربری",
+    "notifications": "notifications",
+    "Messages": "پیام‌ها",
+    "User": "کاربر",
+    "Profile": "پروفایل",
+    "Login": "ورود",
+    "Register": "ثبت‌نام",
+    "Logout": "خروج",
+    "LogoutSuccess": "با موفقیت خارج شدید.",
+    "LogoutFailed": "خروج ناموفق بود."
+  },
+  "TopNav": {
+    "Notification": "اعلان‌ها",
+    "Dashboard": "داشبورد"
+  },
+  "LoginPage": {
+    "welcomeBack": "خوش آمدید",
+    "pleaseLogin": "لطفاً وارد حساب کاربری خود شوید",
+    "email": "آدرس ایمیل",
+    "password": "رمز عبور",
+    "forgotPassword": "رمز عبور را فراموش کرده‌اید؟",
+    "remindMe": "مرا به خاطر بسپار",
+    "login": "ورود",
+    "orLoginWith": "یا ورود با",
+    "signup": "ثبت نام",
+    "dontHaveAccount": "حساب کاربری ندارید؟",
+    "google": "گوگل",
+    "facebook": "فیسبوک",
+    "brandName": "Globe Enter"
+  },
+
+  "RegisterPage": {
+    "brandName": "Globe Enter",
+
+    "createAccount": "ایجاد حساب کاربری",
+    "fillDetails": "لطفاً اطلاعات خود را برای ثبت نام وارد کنید",
+    "fullName": "نام کامل",
+    "email": "ایمیل",
+    "password": "رمز عبور",
+    "confirmPassword": "تایید رمز عبور",
+    "signUp": "ثبت نام",
+    "orSignUpWith": "یا ثبت نام با",
+    "google": "گوگل",
+    "facebook": "فیسبوک",
+    "alreadyHaveAccount": "از قبل حساب دارید؟",
+    "login": "ورود",
+    "imageAlt": "تصاویر"
+  },
+  "CartNotif": {
+    "Cart": "سبد خرید",
+    "Your Cart": "سبد خرید شما",
+    "Your cart is empty": "سبد خرید شما خالی است",
+    "Total": "جمع کل",
+    "AFN": "افغانی",
+    "View Cart": "مشاهده سبد خرید",
+    "Check Out": "تسویه حساب"
+  },
+
+  "Wishlist": {
+    "Wishlist": "لیست علاقه‌مندی‌ها",
+    "Your Wishlist": "لیست علاقه‌مندی‌های شما",
+    "Your wishlist is empty": "لیست علاقه‌مندی‌های شما خالی است",
+    "AFN": "افغانی",
+    "Add to Cart": "افزودن به سبد خرید",
+    "Remove": "حذف",
+    "View Wishlist": "مشاهده لیست علاقه‌مندی‌ها"
+  },
+  "ProfileStats": {
+    "Member Since": "عضو از",
+    "Status": "وضعیت",
+    "Active": "فعال",
+    "Phone": "تلفن",
+    "Favorite Products": "محصولات مورد علاقه",
+    "Wishlist": "لیست علاقه‌مندی‌ها",
+    "Registered Addresses": "آدرس‌های ثبت شده",
+    "Your Addresses": "آدرس‌های شما",
+    "No addresses registered": "آدرسی ثبت نشده است",
+    "Active Orders": "سفارش‌های فعال",
+    "Processing": "در حال پردازش"
+  },
+  "ProfileOrdersAndFavorites": {
+    "Your Latest Favorites": "آخرین موارد علاقه‌مند شما",
+    "View All": "مشاهده همه",
+    "You have no favorites yet": "شما هنوز مورد علاقه‌ای ندارید",
+    "Your Recent Orders": "آخرین سفارشات شما",
+    "You have no orders yet": "شما هنوز سفارشی ندارید",
+    "Start Shopping": "شروع خرید"
+  },
+  "Footer": {
+    "Glob Enter Logo": "لوگوی گلوب اینتر",
+    "Glob Enter": "گلوب اینتر",
+    "Description": "بهترین محصولات با کیفیت عالی و قیمت مناسب ارائه می‌دهیم.",
+    "Quick Links": "لینک‌های سریع",
+    "Home": "خانه",
+    "Products": "محصولات",
+    "Support": "پشتیبانی",
+    "Blog": "وبلاگ",
+    "Policies": "قوانین و سیاست ها",
+    "Categories": "دسته‌بندی‌ها",
+    "Makeup & Beauty": "آرایش و زیبایی",
+    "Shoes": "کفش‌ها",
+    "Clothing": "لباس‌ها",
+    "All Rights Reserved": "تمام حقوق محفوظ است"
+  },
+  "ProfileSeller": {
+    "YourProducts": "محصولات شما",
+    "ViewAll": "نمایش همه",
+    "NoProductsMessage": "شما هنوز هیچ محصولی اضافه نکرده‌اید.",
+    "AddProduct": "افزودن محصول",
+    "Stock": "موجودی",
+    "Price": "قیمت",
+    "Sales": "فروش‌ها",
+    "SoldFor": "فروخته شده به قیمت",
+    "NoSalesMessage": "هنوز هیچ فروشی ندارید."
+  },
+  "login": {
+    "brandName": "گلب انتر",
+    "welcomeBack": "خوش آمدید",
+    "loginSubtitle": "لطفاً وارد حساب کاربری خود شوید",
+    "emailPlaceholder": "ایمیل",
+    "passwordPlaceholder": "رمز عبور",
+    "emailRequired": "ایمیل الزامی است",
+    "passwordRequired": "رمز عبور الزامی است",
+    "forgotPassword": "رمز عبور را فراموش کرده اید؟",
+    "rememberMe": "مرا به خاطر بسپار",
+    "loginButton": "ورود",
+    "loggingIn": "در حال ورود...",
+    "orLoginWith": "یا ورود با",
+    "socialGoogle": "گوگل",
+    "socialFacebook": "فیسبوک",
+    "noAccountPrompt": "حساب ندارید؟",
+    "signUp": "ثبت نام",
+    "loggedInSuccess": "با موفقیت وارد شدید!",
+    "loginFailed": "ورود با خطا مواجه شد!"
+  },
+  "Register": {
+    "createAccount": "ایجاد حساب کاربری",
+    "fillDetails": "لطفاً اطلاعات زیر را وارد کنید",
+    "fullNamePlaceholder": "نام کامل",
+    "emailPlaceholder": "ایمیل",
+    "fullNameRequired": "نام کامل الزامی است",
+    "emailRequired": "ایمیل الزامی است",
+    "registerSuccess": "ثبت‌نام با موفقیت انجام شد!",
+    "registerFailed": "ثبت‌نام انجام نشد",
+    "signUp": "ثبت‌نام",
+    "continue": "ادامه",
+    "signingUp": "در حال ثبت‌نام...",
+    "orSignUpWith": "یا با این گزینه‌ها ثبت‌نام کنید",
+    "google": "گوگل",
+    "facebook": "فیسبوک",
+    "alreadyHaveAccount": "قبلاً حساب دارید؟",
+    "login": "ورود"
+  },
+  "AuthVerification": {
+    "checkEmail": "ایمیل خود را برای تایید حساب بررسی کنید.",
+    "emailRequiredBeforeLogin": "برای ورود، تایید ایمیل الزامی است.",
+    "enterEmail": "لطفاً ابتدا ایمیل خود را وارد کنید.",
+    "emailAlreadyVerified": "این ایمیل قبلاً تایید شده است.",
+    "verificationSent": "ایمیل تایید ارسال شد. لطفاً صندوق ورودی خود را بررسی کنید.",
+    "resendFailed": "ارسال مجدد ایمیل تایید ناموفق بود.",
+    "waitBeforeResend": "لطفاً ۱ دقیقه صبر کنید و دوباره تلاش کنید.",
+    "resendButton": "ارسال مجدد تایید",
+    "sending": "در حال ارسال...",
+    "verifyTitle": "تایید ایمیل",
+    "verifySubtitle": "برای ادامه استفاده از حساب، ایمیل خود را تایید کنید.",
+    "verifying": "در حال تایید ایمیل...",
+    "verifiedSuccess": "ایمیل شما با موفقیت تایید شد.",
+    "goToLogin": "رفتن به صفحه ورود",
+    "goToHome": "رفتن به صفحه اصلی",
+    "setPasswordNow": "اکنون رمز عبور را تنظیم کنید",
+    "setPasswordTitle": "تنظیم رمز عبور",
+    "setPasswordSubtitle": "برای تکمیل حساب خود، رمز عبور ایجاد کنید.",
+    "setPasswordButton": "تنظیم رمز عبور",
+    "settingPassword": "در حال تنظیم رمز عبور...",
+    "passwordSetSuccess": "رمز عبور با موفقیت تنظیم شد. اکنون می‌توانید وارد شوید.",
+    "passwordSetFailed": "تنظیم رمز عبور ناموفق بود.",
+    "passwordMismatch": "رمزهای عبور مطابقت ندارند.",
+    "passwordRequired": "رمز عبور الزامی است.",
+    "confirmPasswordRequired": "تایید رمز عبور الزامی است.",
+    "passwordPlaceholder": "رمز عبور",
+    "confirmPasswordPlaceholder": "تایید رمز عبور",
+    "expiredToken": "لینک تایید شما منقضی شده است.",
+    "invalidToken": "لینک تایید نامعتبر است یا قبلاً استفاده شده است.",
+    "tokenMissing": "توکن تایید پیدا نشد. لطفاً از لینک ارسال‌شده در ایمیل استفاده کنید.",
+    "emailPlaceholder": "ایمیل خود را وارد کنید"
+  },
+  "ForgotPassword": {
+    "title": "فراموشی رمز عبور",
+    "subtitle": "ایمیل خود را وارد کنید تا لینک بازنشانی رمز عبور برای شما ارسال شود.",
+    "emailPlaceholder": "آدرس ایمیل",
+    "emailRequired": "ایمیل الزامی است.",
+    "sendButton": "ارسال لینک بازنشانی",
+    "sending": "در حال ارسال...",
+    "emailSent": "لینک بازنشانی رمز عبور ارسال شد. صندوق ایمیل خود را بررسی کنید.",
+    "requestFailed": "ارسال لینک بازنشانی ناموفق بود.",
+    "resetTitle": "بازنشانی رمز عبور",
+    "resetSubtitle": "رمز عبور جدید برای حساب خود تنظیم کنید.",
+    "newPasswordPlaceholder": "رمز عبور جدید",
+    "confirmPasswordPlaceholder": "تایید رمز عبور جدید",
+    "passwordRequired": "رمز عبور الزامی است.",
+    "confirmPasswordRequired": "لطفا تایید رمز عبور را وارد کنید.",
+    "passwordMismatch": "رمزهای عبور مطابقت ندارند.",
+    "resetButton": "بازنشانی رمز عبور",
+    "resetting": "در حال بازنشانی...",
+    "resetSuccess": "رمز عبور با موفقیت بازنشانی شد.",
+    "resetFailed": "بازنشانی رمز عبور ناموفق بود.",
+    "tokenMissing": "توکن بازنشانی وجود ندارد یا نامعتبر است. لطفا از لینک ایمیل استفاده کنید.",
+    "backToLogin": "بازگشت به ورود"
+  },
+  "AddProduct": {
+    "title": "افزودن محصول جدید",
+    "generalInfo": "اطلاعات کلی",
+    "priceStock": "قیمت و موجودی",
+    "attributes": "ویژگی‌های محصول",
+    "images": "تصاویر",
+    "extraSettings": "تنظیمات اضافی",
+    "createButton": "ایجاد محصول",
+    "saving": "در حال ذخیره...",
+    "toastSuccess": "با موفقیت ایجاد شد!",
+    "toastError": "❌ ایجاد محصول با خطا مواجه شد"
+  },
+  "GeneralInformation": {
+    "productName": "نام محصول",
+    "category": "دسته‌بندی",
+    "brand": "برند",
+    "gender": "جنسیت",
+    "color": "رنگ",
+    "size": "اندازه",
+    "badge": "برچسب",
+    "description": "توضیحات",
+    "tags": "برچسب‌ها (با کاما جدا کنید)",
+    "selectCategory": "انتخاب دسته‌بندی",
+    "selectBrand": "انتخاب برند",
+    "tagsHint": "برچسب‌ها را با کاما جدا کنید (مثلاً: مد، کفش، کودک).",
+
+    "genders": {
+      "all": "همه",
+      "male": "مردانه",
+      "female": "زنانه",
+      "kids": "کودکانه"
+    },
+
+    "customFields": {
+      "material": "جنس",
+      "lining": "آستر",
+      "care_instructions": "دستور شست‌وشو",
+      "origin": "مبدأ"
+    },
+
+    "placeholders": {
+      "name": "مثلاً: پیراهن زنانه شیک، کفش چرمی، تی‌شرت بچه‌گانه",
+      "color": "مثلاً: قرمز، مشکی، کرم",
+      "size": "مثلاً: M، XL، ۴۲ (کفش)، کودک ۶",
+      "badge": "مثلاً: جدید، پرفروش، نسخه محدود",
+      "material": "مثلاً: پنبه، چرم، پشم",
+      "lining": "مثلاً: آستر ابریشمی",
+      "care_instructions": "مثلاً: شست‌وشوی دستی، فقط خشک‌شویی",
+      "origin": "مثلاً: ساخت ایتالیا، وارداتی",
+      "description": "جزئیات محصول، سبک، کیفیت و نحوه استفاده...",
+      "tags": "مثلاً: مد، کاپشن، زمستان، آرایش، کفش"
+    },
+
+    "PriceStock": {
+      "price": "قیمت",
+      "wholesalePrice": "قیمت عمده",
+      "minOrderQty": "حداقل مقدار سفارش",
+      "stock": "موجودی",
+      "unit": "واحد",
+      "placeholders": {
+        "price": "قیمت را وارد کنید",
+        "wholesalePrice": "قیمت عمده را وارد کنید",
+        "minOrderQty": "حداقل مقدار سفارش را وارد کنید",
+        "stock": "مقدار موجودی را وارد کنید",
+        "unit": "مثلاً عدد، بسته، کیلوگرم"
+      },
+      "errors": {
+        "price": "وارد کردن قیمت الزامی است",
+        "minOrderQty": "حداقل مقدار سفارش الزامی است",
+        "stock": "موجودی الزامی است",
+        "unit": "واحد الزامی است"
+      }
+    },
+
+    "Attributes": {
+      "name": "نام ویژگی",
+      "value": "مقدار",
+      "type": "نوع",
+      "remove": "حذف",
+      "addAttribute": "افزودن ویژگی",
+      "placeholders": {
+        "name": "مثلاً جنس",
+        "value": "مثلاً چرم"
+      },
+      "types": {
+        "string": "رشته‌ای",
+        "number": "عددی",
+        "boolean": "درست/نادرست"
+      }
+    }
+  },
+  "Images": {
+    "uploadLabel": "برای آپلود، روی تصاویر کلیک کنید یا آنها را بکشید و رها کنید",
+    "infoText": "چندین تصویر آپلود کنید، ترتیب آن‌ها را تغییر دهید و یکی را به عنوان تصویر اصلی انتخاب کنید.",
+    "altTextPlaceholder": "متن جایگزین",
+    "mainLabel": "اصلی",
+    "deleteTooltip": "حذف",
+    "moveUpTooltip": "بالا بردن",
+    "moveDownTooltip": "پایین بردن"
+  },
+  "ExtraSettings": {
+    "statusLabel": "وضعیت",
+    "statusActive": "فعال",
+    "statusInactive": "غیرفعال",
+    "featuredLabel": "ویژه",
+    "warrantyLabel": "گارانتی",
+    "warrantyPlaceholder": "مثلاً ۲ سال",
+    "colorOptionsLabel": "گزینه‌های رنگ (با کاما جدا کنید)",
+    "colorOptionsPlaceholder": "مثلاً نقره‌ای، خاکستری فضایی"
+  },
+  "Sidebar": {
+    "Dashboard": "داشبورد",
+    "Ecommerce": "فروشگاه",
+    "List Products": "فهرست محصولات",
+    "List My Products": "محصولات من",
+    "Add Product": "افزودن محصول",
+    "Users": "کاربران",
+    "List Users": "فهرست کاربران",
+    "Brand": "برند",
+    "My_Brand": "برند من",
+    "Categories": "دسته‌بندی‌ها",
+    "User Profile": "پروفایل کاربر",
+    "Menu": "منو",
+    "Others": "سایر"
+  },
+  "NewProducts": {
+    "All Products": "تمام محصولات"
+  },
+  "CategoriesDropdown": {
+    "categories": "دسته‌بندی‌ها",
+    "loadingCategories": "در حال بارگذاری دسته‌بندی‌ها...",
+    "noCategories": "هیچ دسته‌بندی‌ای موجود نیست",
+    "viewAll": "مشاهده همه"
+  }
+}

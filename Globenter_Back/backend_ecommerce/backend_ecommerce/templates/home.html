@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Ecommerce API</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white bg-opacity-95 rounded-3xl shadow-2xl p-12 md:p-20 max-w-xl text-center animate-fadeIn">
+        <h1 class="text-5xl font-extrabold text-gray-800 mb-6">🚀 Welcome to the Ecommerce API!</h1>
+        <p class="text-gray-700 text-lg mb-8">Your backend is ready. Start building your amazing e-commerce features now. All APIs are ready for testing!</p>
+        
+        <div class="space-x-4">
+            <a href="/admin/" class="inline-block px-6 py-3 bg-indigo-600 text-white font-semibold rounded-xl shadow hover:bg-indigo-700 transition">Admin Panel</a>
+            <a href="/api/health/" class="inline-block px-6 py-3 bg-green-500 text-white font-semibold rounded-xl shadow hover:bg-green-600 transition">Health Check</a>
+        </div>
+
+        <div class="mt-8 text-gray-500">
+            <p>Available endpoints:</p>
+            <ul class="list-disc list-inside mt-2 text-left text-sm">
+                <li><strong>Auth:</strong> /api/auth/</li>
+                <li><strong>Register:</strong> /api/auth/register/</li>
+                <li><strong>JWT:</strong> /api/auth/jwt/create/</li>
+                <li><strong>Products API:</strong> /api/</li>
+            </ul>
+        </div>
+
+        <p class="mt-6 text-gray-400 text-sm">Development mode - DEBUG=True</p>
+    </div>
+
+    <style>
+        /* Simple fadeIn animation */
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+</body>
+</html>

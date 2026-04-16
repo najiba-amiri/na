@@ -1,0 +1,73 @@
+version: "3.9"
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+services:
+  ecommerce-backend:
+    image: ghcr.io/paimanmohammdi2024/ecommerce-backend:latest
+    container_name: ecommerce-backend
+    restart: always
+    env_file:
+      - ./backend/.env
+    environment:
+      - DJANGO_SETTINGS_MODULE=backend_ecommerce.settings
+    volumes:
+      - /srv/ecommerce/static:/app/static
+      - /srv/ecommerce/media:/app/media
+    ports:
+      - "8000:8000"
+    networks:
+      - ecommerce_network
+    depends_on:
+      - db
+
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+      - /srv/ecommerce/static:/app/static   # ✅ mount host dir
+      - /srv/ecommerce/media:/app/media     # ✅ mount host dir
+    depends_on:
+      - ecommerce-backend
+      - online-shop
+    networks:
+      - ecommerce_network
+
+  db:
+    image: postgres:16
+    container_name: ecommerce-db
+    restart: always
+    environment:
+      POSTGRES_DB: yourdbname
+      POSTGRES_USER: youruser
+      POSTGRES_PASSWORD: yourpassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ecommerce_network
+
+  online-shop:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: online-shop
+    restart: always
+    expose:
+      - "3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - ecommerce_network
+
+networks:
+  ecommerce_network:
+    driver: bridge

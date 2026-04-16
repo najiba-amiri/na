@@ -1,0 +1,335 @@
+"use client";
+import Loading from "@/components/loading";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  FaUserPlus,
+  FaEnvelope,
+  FaFacebookF,
+  FaGoogle,
+  FaInstagram,
+  FaWhatsapp,
+  FaLinkedinIn,
+  FaUser,
+  FaClock,
+  FaHeart,
+  FaMapMarkerAlt,
+  FaShoppingBag,
+} from "react-icons/fa";
+import { FaTag, FaMoneyBillWave } from "react-icons/fa";
+import { CiImageOn } from "react-icons/ci";
+import { AppDispatch, RootState } from "@/store/store";
+import { fetchProfile } from "@/store/slices/profileSlice";
+import { fetchWishlist } from "@/store/slices/wishlistSlice";
+import { fetchCart } from "@/store/slices/cartSlice";
+
+export default function ProfilePage() {
+  const dispatch = useDispatch<AppDispatch>();
+
+  const {
+    data: profile,
+    loading: profileLoading,
+    error: profileError,
+  } = useSelector((state: RootState) => state.profile);
+
+  const { items: wishlistItems } = useSelector(
+    (state: RootState) => state.wishlist
+  );
+  const { items: cartItems } = useSelector((state: RootState) => state.cart);
+
+  useEffect(() => {
+    dispatch(fetchProfile());
+    dispatch(fetchWishlist());
+    dispatch(fetchCart());
+  }, [dispatch]);
+
+  if (profileLoading) return <Loading />;
+  if (profileError)
+    return <p className="text-center mt-10 text-red-600">{profileError}</p>;
+  if (!profile)
+    return <p className="text-center mt-10">No profile data found.</p>;
+
+  return (
+    <div className="bg-gray-100 p-5">
+      {/* Profile Header */}
+      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div
+          className="h-50 flex justify-end items-start p-4 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/assets/images/background/profileback.svg')",
+          }}
+        >
+          <button className="flex items-center gap-2 bg-white/90 text-[#b16926] px-4 py-2 rounded-full font-semibold shadow-lg hover:bg-white transition">
+            <FaUserPlus size={16} /> Follow
+          </button>
+          <button className="flex items-center gap-2 bg-white/90 text-[#b16926] px-4 py-2 rounded-full font-semibold shadow-lg hover:bg-white transition ml-2">
+            <FaEnvelope size={16} /> Messages
+          </button>
+        </div>
+
+        <div className="flex items-center p-6">
+          <div className="w-30 h-30 relative -mt-25 border-4 border-white rounded-full overflow-hidden flex items-center justify-center bg-gray-100">
+            {profile.profile_image ? (
+              <Image
+                src={profile.profile_image}
+                alt={profile.username || "User"}
+                width={80}
+                height={80}
+                className="object-cover w-full h-full"
+              />
+            ) : (
+              <CiImageOn className="text-gray-400 text-5xl" />
+            )}
+          </div>
+
+          <div className="ml-4">
+            <h1 className="text-2xl font-bold">
+              {profile.username || "Guest"}
+            </h1>
+            <p className="text-gray-500">Role: {profile.role || "N/A"}</p>
+          </div>
+        </div>
+
+        <div className="flex justify-between items-center px-6 pb-6">
+          <p className="text-gray-600 text-sm max-w-xl ml-0 md:ml-5">
+            {profile.first_name || profile.last_name
+              ? `Hello, ${profile.first_name ?? ""} ${
+                  profile.last_name ?? ""
+                }`.trim()
+              : "Welcome to your profile!"}
+          </p>
+          <div className="flex space-x-3">
+            {[FaFacebookF, FaGoogle, FaInstagram, FaWhatsapp, FaLinkedinIn].map(
+              (Icon, idx) => (
+                <button
+                  key={idx}
+                  className="flex items-center justify-center w-10 h-10 bg-white/90 rounded-full shadow-lg hover:bg-white transition"
+                  style={{
+                    color:
+                      idx === 0
+                        ? "#3b5998"
+                        : idx === 1
+                        ? "#db4437"
+                        : idx === 2
+                        ? "#e4405f"
+                        : idx === 3
+                        ? "#25d366"
+                        : "#0077b5",
+                  }}
+                >
+                  <Icon size={16} />
+                </button>
+              )
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Profile Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
+        {/* Member Since */}
+        <div className="bg-white shadow-md rounded-xl p-5 grid grid-rows-[auto_auto] gap-4 text-center w-full max-w-sm">
+          <div className="grid grid-cols-2 items-center gap-4">
+            <div className="flex justify-center">
+              <FaUser className="text-purple-500 text-5xl" />
+            </div>
+            <div className="text-left">
+              <h3 className="text-lg font-semibold">Member Since</h3>
+              <p className="text-2xl font-bold">
+                {profile.joined_date
+                  ? new Date(profile.joined_date).toLocaleDateString()
+                  : "N/A"}
+              </p>
+              <p className="text-sm text-gray-500">Account Status: Active</p>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <button className="text-purple-500 font-medium hover:underline">
+              Edit Profile
+            </button>
+          </div>
+        </div>
+
+        {/* Favorites */}
+        <div className="bg-white shadow-md rounded-xl p-5 grid grid-rows-[auto_auto] gap-4 max-w-sm">
+          <div className="grid grid-cols-2 items-center gap-4">
+            <div className="flex justify-center">
+              <FaHeart className="text-pink-500 text-5xl" />
+            </div>
+            <div className="text-left flex flex-col">
+              <h3 className="text-lg font-semibold">Favorite Products</h3>
+              <p className="text-2xl font-bold">{wishlistItems.length}</p>
+              <p className="text-sm text-gray-500">Wishlist</p>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <Link href="/wishlist">
+              <button className="text-pink-500 font-medium hover:underline">
+                View List
+              </button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Addresses */}
+        <div className="bg-white shadow-md rounded-xl p-5 max-w-sm">
+          <div className="flex items-center gap-4 mb-4">
+            <FaMapMarkerAlt className="text-blue-500 text-5xl" />
+            <div className="text-left">
+              <h3 className="text-lg font-semibold">Registered Addresses</h3>
+              <p className="text-sm text-gray-500">Your Addresses</p>
+            </div>
+          </div>
+
+          {/* Address List */}
+          <div className="space-y-3">
+            {profile.addresses && profile.addresses.length > 0 ? (
+              profile.addresses.map((addr, idx) => (
+                <div
+                  key={idx}
+                  className="bg-gray-50 p-3 rounded-lg border border-gray-200 text-center"
+                >
+                  <p className="font-medium">{addr.address_line}</p>
+                  <p className="text-sm text-gray-600">
+                    {addr.city}, {addr.state}, {addr.zip_code}, {addr.country}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-500">No addresses registered.</p>
+            )}
+          </div>
+        </div>
+
+        {/* Orders */}
+        <div className="bg-white shadow-md rounded-xl p-5 grid grid-rows-[auto_auto] gap-4 max-w-sm">
+          <div className="grid grid-cols-2 items-center gap-4">
+            <div className="flex justify-center">
+              <FaShoppingBag className="text-orange-500 text-5xl" />
+            </div>
+            <div className="text-left flex flex-col">
+              <h3 className="text-lg font-semibold">Active Orders</h3>
+              <p className="text-2xl font-bold">{cartItems.length}</p>
+              <p className="text-sm text-gray-500">Processing</p>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <Link href="/cart">
+              <button className="text-orange-500 font-medium hover:underline">
+                View All Orders
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Latest Favorites & Recent Orders */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        {/* Latest Favorites */}
+        <div className="bg-white shadow-md rounded-xl p-5">
+          <div className="flex items-center justify-between border-b pb-3">
+            <h3 className="flex items-center gap-2 text-lg font-semibold text-gray-800">
+              <FaHeart className="text-pink-500" />
+              Your Latest Favorites
+            </h3>
+            <Link href="/wishlist">
+              <button className="text-pink-500 hover:underline font-medium">
+                View All
+              </button>
+            </Link>
+          </div>
+
+          {wishlistItems && wishlistItems.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+              {wishlistItems.slice(0, 3).map((item) => (
+                <div
+                  key={item.id}
+                  className="flex flex-col items-center gap-2 bg-[#fffaf7] p-3 rounded-lg shadow-sm"
+                >
+                  {item.product.image ? (
+                    <Image
+                      width={80}
+                      height={80}
+                      src={item.product.image}
+                      alt={item.product.name}
+                      className="w-20 h-20 object-contain"
+                    />
+                  ) : (
+                    <FaHeart className="text-pink-300 text-5xl" />
+                  )}
+                  <h4 className="text-sm font-medium text-gray-800 text-center">
+                    {item.product.name}
+                  </h4>
+                  <p className="text-[#b16926] font-bold text-sm">
+                    AFN {item.product.price}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center py-10 text-gray-500">
+              <FaHeart className="text-pink-300 text-4xl mb-4" />
+              <p>You have no favorites yet.</p>
+            </div>
+          )}
+        </div>
+
+        {/* Recent Orders */}
+        <div className="bg-white shadow-md rounded-xl p-5">
+          <div className="flex items-center justify-between border-b pb-3">
+            <h3 className="flex items-center gap-2 text-lg font-semibold text-gray-800">
+              <FaClock className="text-[#f1a013]" />
+              Your Recent Orders
+            </h3>
+            <Link href="/cart">
+              <button className="text-pink-500 hover:underline font-medium">
+                View All
+              </button>
+            </Link>
+          </div>
+
+          {cartItems && cartItems.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+              {cartItems.slice(0, 3).map((item) => (
+                <div
+                  key={item.id}
+                  className="flex flex-col items-center gap-2 bg-[#fffdf7] p-3 rounded-lg shadow-sm"
+                >
+                  {item.product.image ? (
+                    <Image
+                      width={80}
+                      height={80}
+                      src={item.product.image}
+                      alt={item.product.name}
+                      className="w-20 h-20 object-contain"
+                    />
+                  ) : (
+                    <FaShoppingBag className="text-gray-400 text-5xl" />
+                  )}
+                  <h4 className="text-sm font-medium text-gray-800 text-center">
+                    {item.product.name}
+                  </h4>
+                  <p className="text-[#b16926] font-bold text-sm">
+                    AFN {item.subtotal}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center py-10">
+              <FaShoppingBag className="text-gray-400 text-4xl mb-4" />
+              <p className="text-gray-500 mb-4">You have no orders yet</p>
+              <Link href="/">
+                <button className="bg-[#b16926] hover:bg-[#a05b20] text-white px-6 py-2 rounded-lg font-medium">
+                  Start Shopping
+                </button>
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

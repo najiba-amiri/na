@@ -1,0 +1,6 @@
+Hi {{ user.username }},
+
+Thanks for signing up. Please verify your email by opening this link:
+{{ verification_url }}
+
+This link expires in {{ expiry_hours }} hours.
