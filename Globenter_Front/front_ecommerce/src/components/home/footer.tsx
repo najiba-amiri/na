@@ -102,14 +102,8 @@ export default function Footer() {
             >
               <FaFacebookF />
             </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#f1a013]"
-            >
-              <FaTwitter />
-            </a>
+          
+            
             <a
               href="https://www.instagram.com/globenter/"
               target="_blank"
